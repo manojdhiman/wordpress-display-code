@@ -1,0 +1,51 @@
+<?php
+add_action('media_buttons_context', 'add_my_custom_button');
+
+add_action('init', 'add_inline_popup_content');
+
+function add_my_custom_button($context) {
+  
+  //path to my icon
+  $img = plugins_url( 'images/php-icon.png' , __FILE__ );
+  
+  //the id of the container I want to show in the popup
+  $container_id = 'popup_container';
+  
+  //our popup's title
+  $title = 'Insert php code';
+
+  //append the icon
+  $context .= "<a class='thickbox' title='{$title}'
+    href='#TB_inline?width=640&inlineId={$container_id}'>
+    <img src='{$img}' /></a>";
+  
+  return $context;
+}
+
+function add_inline_popup_content() {
+?>
+<script type="text/javascript">
+            function addCode(){
+                
+                var code = '<pre lang="'+jQuery("#lang").val()+'" line="1">'+jQuery("#code").val()+'</pre>';
+                
+                if(code == ""){
+                    alert("<?php _e("Please select a form", "piereg") ?>");
+                    return;
+                }
+
+               
+
+                window.send_to_editor(code);
+            }
+        </script>
+<div id="popup_container" style="display:none;">
+    <select name="type" id="lang">
+        <option value="java">Java</option>
+        <option value="php">php</option>
+    </select>
+    <textarea style="min-height: 375px;width: 648px;" name="code" id="code" ></textarea>
+    <button type="submit" name="code_button" onclick="addCode();" id="code_bttn">Insert</button>
+</div>
+<?php
+}
