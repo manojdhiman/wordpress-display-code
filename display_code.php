@@ -1,13 +1,12 @@
 <?php
 /*
-Plugin Name: WP-Syntax
-Plugin URI: http://www.connections-pro.com
-Description: Syntax highlighting using <a href="http://qbnz.com/highlighter/">GeSHi</a> supporting a wide range of popular languages.
+Plugin Name: wp-code display
+Plugin URI: 
+Description: very useful plugin for the code bloging site to display the code at front end with styling 
 Version: 1.0
-Author: Steven A. Zahm
-Author URI: http://www.connections-pro.com
+Author: manoj dhiman
+Author URI: http://www.blog2knowledge.com
 License: GPL2
-Text Domain: wp_syntax
 Domain Path: /lang
 
 Original Author: Ryan McGeary
